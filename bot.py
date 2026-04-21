@@ -1,4 +1,4 @@
-pythonimport os, json, logging, tempfile
+import os, json, logging, tempfile
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     Application, MessageHandler, CallbackQueryHandler,
