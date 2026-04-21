@@ -1,10 +1,3 @@
-Бачу проблему! Оранжеві крапки ... всередині рядків ("⏳ Аналізую...") — це не проблема. Але файл, схоже, зберігся з неправильним кодуванням через TextEdit.
-Найпростіше рішення — відредагуй прямо на GitHub:
-
-Відкрий bot.py на GitHub → натисни олівець (Edit)
-Cmd+A → видали все
-Встав цей код — я прибрала всі emoji зі рядків щоб уникнути проблем з кодуванням:
-
 pythonimport os, json, logging, tempfile
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
