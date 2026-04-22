@@ -149,7 +149,7 @@ async def _start_task(text, update, ctx):
 
 async def handle_text(update, ctx):
     text = update.message.text or ""
-    if update.message.forward_date:
+    if update.message.forward_origin:
         text = "[Переслано] " + text
     return await _start_task(text, update, ctx)
 
