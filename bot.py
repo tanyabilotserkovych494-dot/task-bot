@@ -14,7 +14,11 @@ TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 ANTHROPIC_KEY  = os.getenv("ANTHROPIC_API_KEY")
 OPENAI_KEY     = os.getenv("OPENAI_API_KEY")
 SPREADSHEET_ID = os.getenv("SPREADSHEET_ID")
-GOOGLE_CREDS   = "google_creds.json"
+import json as _json, tempfile as _tmp
+_f = _tmp.NamedTemporaryFile(mode='w', suffix='.json', delete=False)
+_f.write(os.getenv("GOOGLE_CREDS_JSON", "{}"))
+_f.flush()
+GOOGLE_CREDS = _f.name
 
 claude = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
 oai    = openai.OpenAI(api_key=OPENAI_KEY)
