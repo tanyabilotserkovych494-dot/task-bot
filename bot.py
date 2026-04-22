@@ -240,6 +240,7 @@ async def weekly_plan(update, ctx):
     await update.message.reply_text(resp.content[0].text)
 
 def main():
+    import asyncio
     app = Application.builder().token(TELEGRAM_TOKEN).build()
     conv = ConversationHandler(
         entry_points=[
@@ -259,7 +260,7 @@ def main():
     app.add_handler(conv)
     app.add_handler(CommandHandler("plan", weekly_plan))
     print("Бот запущено!")
-    app.run_polling()
+    asyncio.run(app.run_polling())
 
 if __name__ == "__main__":
     main()
