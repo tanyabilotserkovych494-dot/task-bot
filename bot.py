@@ -45,16 +45,18 @@ def add_project_to_sheet(name):
     sheets().worksheet("Довідники").append_row([name])
 
 def save_task(task):
-    sheets().worksheet("Задачі").append_row([
+    sheet = sheets().worksheet("Задачі")
+    row = [
         datetime.now().strftime("%d.%m.%Y %H:%M"),
         task.get("name", ""),
         task.get("project", ""),
         task.get("description", ""),
         task.get("priority", "3"),
-        task.get("deadline", ""),
         task.get("status", "В роботі"),
+        task.get("deadline", ""),
         task.get("comments", ""),
-    ])
+    ]
+    sheet.append_row(row, value_input_option="USER_ENTERED", table_range="A9")
 
 def extract_task(text, projects):
     plist = ", ".join(projects) if projects else "список порожній"
