@@ -59,7 +59,7 @@ def save_task(task):
 def extract_task(text, projects):
     plist = ", ".join(projects) if projects else "список порожній"
     resp = claude.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-5",
         max_tokens=600,
         messages=[{"role": "user", "content": (
             "Ти - асистент для управління задачами. Витягни задачу з повідомлення.\n"
@@ -228,7 +228,7 @@ async def save_new_project(update, ctx):
 async def weekly_plan(update, ctx):
     await update.message.reply_text("Генерую план...")
     resp = claude.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-5",
         max_tokens=500,
         messages=[{"role": "user", "content":
             "Згенеруй мотиваційний план-намір на робочий тиждень. "
